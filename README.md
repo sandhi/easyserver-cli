@@ -1,1 +1,1 @@
-easyserver, configuration your server with easy
+easyserver-cli, configuration your server with easy
