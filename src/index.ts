@@ -4,9 +4,11 @@ var pkg = require("../package.json");
 var inquirer = require("inquirer");
 import { program } from "commander";
 
-type PACKAGE_TYPE = "ionic3" | "ionic4" | "loopback4" | "reactapp";
+import * as nginx_service from "./nginx_service";
 
-const package_list: PACKAGE_TYPE[] = ["ionic3", "ionic4", "loopback4", "reactapp"];
+type PACKAGE_TYPE = "install nginx on ubuntu 20.04";
+
+const package_list: PACKAGE_TYPE[] = ["install nginx on ubuntu 20.04"];
 
 program.version(pkg.version, "-v, --version", "show cli version");
 program.parse(process.argv);
@@ -22,13 +24,8 @@ inquirer
     ])
     .then((res: { project: PACKAGE_TYPE }) => {
         switch (res.project) {
-            case "ionic3":
-                break;
-            case "ionic4":
-                break;
-            case "loopback4":
-                break;
-            case "reactapp":
+            case "install nginx on ubuntu 20.04":
+                nginx_service.init();
                 break;
             default:
                 console.log("salah pilih");
